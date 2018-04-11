@@ -240,17 +240,18 @@ fileprivate extension MessagesCollectionViewFlowLayout {
     func messageIntermediateLayoutAttributes(for indexPath: IndexPath) -> MessageIntermediateLayoutAttributes {
         
         let message = messagesDataSource.messageForItem(at: indexPath, in: messagesCollectionView)
-        
+        //pichugin: disable cache
+        /*
         if let intermediateAttributes = intermediateAttributesCache[message.messageId] {
             return intermediateAttributes
-        } else {
+        } else {*/
             let newAttributes = createMessageIntermediateLayoutAttributes(for: message, at: indexPath)
-            
+            /*
             if intermediateAttributesCache.count < attributesCacheMaxSize {
                 intermediateAttributesCache[message.messageId] = newAttributes
-            }
+            }*/
             return newAttributes
-        }
+        //}
         
     }
     
